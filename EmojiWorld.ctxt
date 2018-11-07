@@ -14,4 +14,6 @@ comment5.params=l
 comment5.target=void\ addLives(int)
 comment6.params=l
 comment6.target=void\ takeLives(int)
-numComments=7
+comment7.params=w
+comment7.target=void\ setWave(int)
+numComments=8

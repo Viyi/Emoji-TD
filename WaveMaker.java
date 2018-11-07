@@ -54,10 +54,15 @@ public class WaveMaker extends Actor
     }
     
     public String nextLevel(){
-        
+        level++;
+        if(level < levels.length){
+            ((EmojiWorld) getWorld()).setWave(level);
+            return levels[level];
+        }
         
         level = 0;
-        wait = 100;
+        ((EmojiWorld) getWorld()).setWave(level);
+        wait = 200;
         return levels[level];
         
     }

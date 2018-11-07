@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EmojiWorld extends World
 {
-    private int coins,lives;
+    private int coins,lives, wave;
     /**
      * Constructor for objects of class EmojiWorld.
      * 
@@ -17,16 +17,23 @@ public class EmojiWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super( 960, 540, 1, false); 
-        coins = 0;
+        coins = 500;
         lives = 10;
+        wave = 0;
         addObject(new WaveMaker(), 0, 300);
     }
     
     public void act(){
         showText("Coins: " + coins, getWidth()/2, 10);
         showText("Lives: " + lives , getWidth()/2, 30);
+        showText("Wave: " + wave , getWidth()/2, 50);
+        
+        if(Greenfoot.mouseClicked(this) && coins > 99){
+           coins -= 100;
+           MouseInfo mouse = Greenfoot.getMouseInfo();
+           addObject(new Tower(), mouse.getX(), mouse.getY());
     }
-    
+}
     public void addCoins(int v){
         coins += v;
     }
@@ -43,4 +50,7 @@ public class EmojiWorld extends World
         lives -= l;
     }
     
+    public void setWave(int w){
+        wave = w;
+    }
 }
