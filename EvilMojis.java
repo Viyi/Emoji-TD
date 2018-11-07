@@ -10,18 +10,33 @@ import java.util.List;
  */
 public class EvilMojis extends Actor {
 
-    private int distanceTraveled, health, speed, direction;
+    private int distanceTraveled, health, speed, direction, value;
+    private String type;
 
     public EvilMojis() {
         distanceTraveled = 0;
         health = 100;
-        speed = 5;
+        speed = 2;
         direction = 1;
+        type = "normal";
+        value = 5;
     }
 
     public void act() {
         distanceTraveled++;
-        followTrack();
+       // followTrack();
+       move(speed);
+       if(getX() > getWorld().getWidth()){
+           ((EmojiWorld)getWorld()).takeLives(1);
+           getWorld().removeObject(this);
+       }
+       if(health < 0){
+           ((EmojiWorld)getWorld()).addCoins(value);
+           getWorld().removeObject(this);
+           
+       }
+       
+       
     }
 
     public int getDistance() {
@@ -104,6 +119,11 @@ public class EvilMojis extends Actor {
             }
             
         }
+    }
+
+    void hit(int damage, String type) {
+        int realD = damage;
+        health -= realD;
     }
     
     

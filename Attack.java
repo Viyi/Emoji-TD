@@ -16,14 +16,55 @@ public class Attack extends Actor
      * Act - do whatever the Attack wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public Attack(int s, int d, String ty, EvilMojis t){
+        speed = s;
+        damage = d;
+        type = ty;
+        target = t;
+        
+    }
+    
+     public Attack(EvilMojis t){
+        speed = 5;
+        damage = 30;
+        type = "normal";
+        target = t;
+        
+    }
+    
+    
     public void act() 
     {
-        // Add your action code here.
+       follow();
     } 
+    
+    public void follow(){
+        
+        try{
+           moveToTarget();
+           
+           if (intersects(target)) {
+               target.hit(damage,type);
+               getWorld().removeObject(this);
+           }
+   
+       } catch(IllegalStateException e) {
+           getWorld().removeObject(this);
+       }
+    }
+    
+    public void moveToTarget(){
+        turnTowards(target.getX(), target.getY());
+        move(speed);
+    }
+    
     public int getSpeed()
     {
         return speed;
     }
+    
+    
     public int getDamage()
     {
         return damage;

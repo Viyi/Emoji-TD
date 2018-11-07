@@ -10,45 +10,49 @@ public class Tower extends Actor {
     private int range, damage, type, rate, timer;
 
     public Tower() {
-        range = 75;
+        range = 250;
         timer = 0;
         rate = 30;
     }
 
     public void act() {
-        target = locateEnemy();
+        locateEnemy();
         timer++;
         if (rate < timer && target != null) {
-            if (attack(5)) {
+            if (attack()) {
                 timer = 0;
             }
         }
     }
 
-    public EvilMojis locateEnemy() {
+    public void locateEnemy() {
 
         List<EvilMojis> temp = getObjectsInRange(range, EvilMojis.class);
-        if(temp.size() == 0){
-           return new EvilMojis();
+        if (temp.size() == 0) {
+            target = null;
+            return;
         }
-        System.out.println("Detected");
         EvilMojis enemy = temp.get(0);
-        
+
         for (EvilMojis e : temp) {
-            if(e.getDistance() > e.getDistance()){
+
+            if (e.getDistance() > enemy.getDistance()) {
                 enemy = e;
             }
         }
 
-        
-
-        return enemy;
+        target = enemy;
     }
 
-    public boolean attack(int s) {
-        if (target != null) {
-          //  getWorld().addObject(new Attack(target, s), 0, 0);
-            return true;
+    public boolean attack() {
+         try {
+            if (target != null) {
+                turnTowards(target.getX(), target.getY());
+                getWorld().addObject(new Attack(target), getX(), getY());
+                return true;
+            }
+        }catch (IllegalStateException e){
+            
         }
 
         return false;

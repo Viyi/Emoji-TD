@@ -16,7 +16,7 @@ public class TrackMaker extends Actor
         Track t = null;
         Track p = null;
         for(int a = 540; a > 0; a-= 55){
-            t = new Track(p);
+            //t = new Track(p);
             getWorld().addObject(t, a, 300);
             p = t;
         }
