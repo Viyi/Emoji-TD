@@ -12,7 +12,7 @@ public class Tower extends Actor {
     public Tower() {
         range = 250;
         timer = 0;
-        rate = 30;
+        rate = 100;
     }
 
     public void act() {

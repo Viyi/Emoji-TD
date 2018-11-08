@@ -25,7 +25,7 @@ public class EmojiWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super( 960, 540, 1, false); 
-        coins = 500;
+        coins = 300;
         lives = 10;
         wave = 0;
         addObject(new WaveMaker(), 0, 30);
@@ -120,6 +120,8 @@ public class EmojiWorld extends World
             }
             break;
         }
+        
+        addObject(new Next(), 66, 505);
     }
     
     private int getMapIndex(int x, int y) {
@@ -130,9 +132,10 @@ public class EmojiWorld extends World
     }
     
     public void act(){
-        showText("Coins: " + coins, getWidth() / 2, 10);
-        showText("Lives: " + lives , getWidth() / 2, 30);
-        showText("Wave: " + wave , getWidth() / 2, 50);
+        int rWave = wave + 1;
+        showText("Coins: " + coins, getWidth()/2, 10);
+        showText("Lives: " + lives , getWidth()/2, 30);
+        showText("Wave: " + rWave , getWidth()/2, 50);
         
         // spawn tower
         if(Greenfoot.mouseClicked(this) && coins > 99){
