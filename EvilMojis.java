@@ -1,6 +1,7 @@
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.util.Iterator;
 
 /**
  * Write a description of class EvilMojis here.
@@ -12,6 +13,10 @@ public class EvilMojis extends Actor {
 
     private int distanceTraveled, health, speed, direction, value;
     private String type;
+    private int sX, sY;
+    private Iterator itr = EmojiWorld.oTracks.iterator();
+    private GreenfootImage trackImg;
+                    //addObject(t, i * img.getWidth() + (img.getWidth() / 2), j * img.getHeight() + (img.getHeight() / 2));
 
     public EvilMojis() {
         distanceTraveled = 0;
@@ -20,12 +25,36 @@ public class EvilMojis extends Actor {
         direction = 1;
         type = "normal";
         value = 5;
+        if (itr.hasNext()) {
+            Point p = (Point) itr.next();
+            sX = p.x;
+            sY = p.y;
+        }
+        trackImg = EmojiWorld.typicalTrack.getImage();
     }
 
     public void act() {
         distanceTraveled++;
-       // followTrack();
-       move(speed);
+        if (getX() < sX - 20) {
+            setLocation(getX() + 1, getY());
+        } else if (getX() > sX + 20) {
+            setLocation(getX() - 1, getY());
+        } else if (getY() < sY - 20) {
+            setLocation(getX(), getY() + 1);
+        } else if (getY() > sY + 20) {
+            setLocation(getX(), getY() - 1);
+        } else {
+            if (itr.hasNext()) {
+                Point p = (Point) itr.next();
+                sX = p.x * trackImg.getWidth() + (trackImg.getWidth() / 2);
+                sY = p.y * trackImg.getHeight() + (trackImg.getHeight() / 2);
+            } else {
+                sX = Integer.MAX_VALUE;
+            }
+        }
+        
+        //followTrack();
+       //move(speed);
        if(getX() > getWorld().getWidth()){
            ((EmojiWorld)getWorld()).takeLives(1);
            getWorld().removeObject(this);
@@ -46,39 +75,31 @@ public class EvilMojis extends Actor {
     public void followTrack() {
         detectTrack();
         turnToTrack();
-        
         move(speed);
 
     }
-
-    public int setRot(int r){
-        
-        setRotation(r);
-        
-        directionToRotation();
-        
-        return direction;
-    }
+    
     private void detectTrack(){
   
-            if(getOneObjectAtOffset(1, 0, Track.class) != null){
+            if(getOneObjectAtOffset(0, -2, Track.class) != null && getOneObjectAtOffset(0, 2, Track.class) != null) {
                 //Right
                 direction = 0;
                 setRotation(0);
                 
-            }else  if(getOneObjectAtOffset(0, -1, Track.class) != null){
+            } else if(getOneObjectAtOffset(0, -30, Track.class) != null){
                 //Up
-                direction = 1;
-                setRotation(-90);
-            }else  if(getOneObjectAtOffset(0, 1, Track.class) != null){
-                //Down
                 direction = 2;
+                setRotation(-90);
+            } else if(getOneObjectAtOffset(0, 30, Track.class) != null){
+                //Down
+                direction = 1;
                 setRotation(90);
-            }else  if(getOneObjectAtOffset(-1,0, Track.class) != null){
+            }
+            /*else  if(getOneObjectAtOffset(-1,0, Track.class) != null){
                 //Right
                 direction = 4;
                 setRotation(180);
-            }
+            }*/
         
     }
     

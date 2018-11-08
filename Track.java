@@ -12,8 +12,12 @@ public class Track extends Actor
      * Act - do whatever the Track wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+    private EmojiWorld eW;
+    
+    public Track(int width, int height, int tile_scale, EmojiWorld eW) {
+        GreenfootImage i = getImage();
+        i.scale(width / tile_scale, height / tile_scale);
+        setImage(i);
+        eW = this.eW;
+    }
 }
