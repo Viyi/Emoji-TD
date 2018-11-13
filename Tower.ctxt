@@ -2,10 +2,12 @@
 comment0.target=Tower
 comment1.params=
 comment1.target=Tower()
-comment2.params=
-comment2.target=void\ act()
+comment2.params=r\ ra\ d
+comment2.target=Tower(int,\ int,\ int)
 comment3.params=
-comment3.target=void\ locateEnemy()
+comment3.target=void\ act()
 comment4.params=
-comment4.target=boolean\ attack()
-numComments=5
+comment4.target=void\ locateEnemy()
+comment5.params=
+comment5.target=boolean\ attack()
+numComments=6

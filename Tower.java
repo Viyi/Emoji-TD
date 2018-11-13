@@ -14,6 +14,13 @@ public class Tower extends Actor {
         timer = 0;
         rate = 100;
     }
+    
+    public Tower(int r, int ra, int d) {
+        range = r;
+        timer = 0;
+        rate = ra;
+        damage = d;
+    }
 
     public void act() {
         locateEnemy();

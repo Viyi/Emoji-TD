@@ -32,6 +32,21 @@ public class EvilMojis extends Actor {
         }
         trackImg = EmojiWorld.typicalTrack.getImage();
     }
+    
+    public EvilMojis(int h, int s, int v) {
+        distanceTraveled = 0;
+        health = 100;
+        speed = 2;
+        direction = 1;
+        type = "normal";
+        value = 5;
+        if (itr.hasNext()) {
+            Point p = (Point) itr.next();
+            sX = p.x;
+            sY = p.y;
+        }
+        trackImg = EmojiWorld.typicalTrack.getImage();
+    }
 
     public void act() {
         distanceTraveled++;
