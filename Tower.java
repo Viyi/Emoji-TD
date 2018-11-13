@@ -9,10 +9,11 @@ public class Tower extends Actor {
     private EvilMojis target;
     private int range, damage, type, rate, timer;
 
-    public Tower() {
-        range = 250;
+    public Tower(int r, int d, int rt) {
+        range = r;
         timer = 0;
-        rate = 100;
+        damage= d;
+        rate = rt;
     }
     
     public Tower(int r, int ra, int d) {

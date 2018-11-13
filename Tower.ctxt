@@ -11,3 +11,30 @@ comment4.target=void\ locateEnemy()
 comment5.params=
 comment5.target=boolean\ attack()
 numComments=6
+=======
+#BlueJ class context
+comment0.target=Tower
+comment1.params=
+comment1.target=Tower()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ locateEnemy()
+comment4.params=
+comment4.target=boolean\ attack()
+numComments=5
+>>>>>>> ac2be06dc46ff67dba175ae8f88eaeb5f9c71907
+
+=======
+#BlueJ class context
+comment0.target=Tower
+comment1.params=r\ d\ rt
+comment1.target=Tower(int,\ int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ locateEnemy()
+comment4.params=
+comment4.target=boolean\ attack()
+numComments=5
+>>>>>>> ac2be06dc46ff67dba175ae8f88eaeb5f9c71907
