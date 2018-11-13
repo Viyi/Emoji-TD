@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.target=EmojiWorld
 comment0.text=\n\ Write\ a\ description\ of\ class\ EmojiWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
@@ -23,3 +24,30 @@ comment8.target=void\ setWave(int)
 comment9.params=
 comment9.target=int\ getTileScale()
 numComments=11
+=======
+#BlueJ class context
+comment0.target=EmojiWorld
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ EmojiWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=EmojiWorld()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EmojiWorld.\r\n\ \r\n
+comment10.params=
+comment10.target=java.lang.Integer[][]\ getMap()
+comment2.params=x\ y
+comment2.target=int\ getMapIndex(int,\ int)
+comment3.params=
+comment3.target=void\ act()
+comment4.params=v
+comment4.target=void\ addCoins(int)
+comment5.params=v
+comment5.target=void\ spendCoins(int)
+comment6.params=l
+comment6.target=void\ addLives(int)
+comment7.params=l
+comment7.target=void\ takeLives(int)
+comment8.params=w
+comment8.target=void\ setWave(int)
+comment9.params=
+comment9.target=int\ getTileScale()
+numComments=11
+>>>>>>> ac2be06dc46ff67dba175ae8f88eaeb5f9c71907

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.target=TrackMaker
 comment0.text=\n\ Write\ a\ description\ of\ class\ TrackMaker\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
@@ -7,3 +8,14 @@ comment1.text=\n\ Act\ -\ do\ whatever\ the\ TrackMaker\ wants\ to\ do.\ This\ m
 comment2.params=
 comment2.target=void\ act()
 numComments=3
+=======
+#BlueJ class context
+comment0.target=TrackMaker
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ TrackMaker\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=TrackMaker()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ TrackMaker\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3
+>>>>>>> ac2be06dc46ff67dba175ae8f88eaeb5f9c71907

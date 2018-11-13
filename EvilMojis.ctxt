@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #BlueJ class context
 comment0.target=EvilMojis
 comment0.text=\n\ Write\ a\ description\ of\ class\ EvilMojis\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
@@ -20,3 +21,25 @@ comment8.target=void\ turnToTrack()
 comment9.params=damage\ type
 comment9.target=void\ hit(int,\ java.lang.String)
 numComments=10
+=======
+#BlueJ class context
+comment0.target=EvilMojis
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ EvilMojis\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=EvilMojis()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=int\ getDistance()
+comment4.params=
+comment4.target=void\ followTrack()
+comment5.params=
+comment5.target=void\ detectTrack()
+comment6.params=
+comment6.target=void\ directionToRotation()
+comment7.params=
+comment7.target=void\ turnToTrack()
+comment8.params=damage\ type
+comment8.target=void\ hit(int,\ java.lang.String)
+numComments=9
+>>>>>>> ac2be06dc46ff67dba175ae8f88eaeb5f9c71907
