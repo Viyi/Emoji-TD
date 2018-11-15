@@ -27,7 +27,7 @@ public class Next extends Actor {
             return;
         }
         WaveMaker wave = temp.get(0);
-        setImage("images/world/nextWave.png");
+        setImage("images/nextWave.png");
         wave.setNext(true);
     }
     

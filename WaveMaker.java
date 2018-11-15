@@ -69,7 +69,7 @@ public class WaveMaker extends Actor
         List<Next> temp = getObjectsInRange(4000, Next.class);
         if (!(temp.size() == 0)) {
            Next  butt = temp.get(0);
-           butt.setIm("images/world/nextWaveGlow.png");
+           butt.setIm("images/nextWaveGlow.png");
         }
         if(level < levels.length){
             ((EmojiWorld) getWorld()).setWave(level);
