@@ -8,89 +8,76 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Attack extends Actor
 {
-    private int speed = -1;
-    private int damage= -1;
-    private EvilMojis target;
+    private int speed;
+    private int damage;
     private String type;
-    /**
-     * Act - do whatever the Attack wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private EvilMojis target;
     
-    public Attack(int s, int d, String ty, EvilMojis t){
-        speed = s;
-        damage = d;
-        type = ty;
-        target = t;
+    public Attack(int speed, int damage, String type, EvilMojis target) {
+        this.speed = speed;
+        this.damage = damage;
+        this.type = type;
+        this.target = target;
         
     }
     
-     public Attack(EvilMojis t){
+     public Attack(EvilMojis t, int damage) {
         speed = 5;
-        damage = 30;
+        this.damage = damage;
         type = "normal";
         target = t;
-        
     }
     
-    
-    public void act() 
-    {
+    public void act() {
        follow();
     } 
     
-    public void follow(){
-        
-        try{
+    public void follow() {
+        try {
            moveToTarget();
-           
            if (intersects(target)) {
                target.hit(damage,type);
                getWorld().removeObject(this);
            }
-   
        } catch(IllegalStateException e) {
            getWorld().removeObject(this);
        }
     }
     
-    public void moveToTarget(){
+    public void moveToTarget() {
         turnTowards(target.getX(), target.getY());
         move(speed);
     }
     
-    public int getSpeed()
-    {
+    public int getSpeed() {
         return speed;
     }
     
-    
-    public int getDamage()
-    {
+    public int getDamage() {
         return damage;
     }
-    public EvilMojis getTarget()
-    {
+    
+    public EvilMojis getTarget() {
        return target; 
     }
-    public String type()
-    {
+    
+    public String type() {
         return type;
     }
-    public void setSpeed(int s)
-    {
+    
+    public void setSpeed(int s) {
         speed= s;
     }
-    public void setDamage(int d)
-    {
+    
+    public void setDamage(int d) {
         damage= d;
     }
-    public void setTarget(EvilMojis e)
-    {
+    
+    public void setTarget(EvilMojis e) {
         target= e;
     }
-    public void setType(String t)
-    {
+    
+    public void setType(String t) {
         type=t;
     }
 }

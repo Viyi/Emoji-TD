@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.target=Attack
 comment0.text=\n\ Write\ a\ description\ of\ class\ Attack\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=s\ d\ ty\ t
+comment1.params=speed\ damage\ type\ target
 comment1.target=Attack(int,\ int,\ java.lang.String,\ EvilMojis)
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Attack\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment10.params=s
 comment10.target=void\ setSpeed(int)
 comment11.params=d
@@ -12,8 +11,8 @@ comment12.params=e
 comment12.target=void\ setTarget(EvilMojis)
 comment13.params=t
 comment13.target=void\ setType(java.lang.String)
-comment2.params=t
-comment2.target=Attack(EvilMojis)
+comment2.params=t\ damage
+comment2.target=Attack(EvilMojis,\ int)
 comment3.params=
 comment3.target=void\ act()
 comment4.params=

@@ -14,43 +14,39 @@ public class WaveMaker extends Actor
      private boolean next = false;
     private String currentLevel;
     private String[] levels;
-    public WaveMaker(){
+    public WaveMaker() {
         wait = fWait;
         wave = 1;
         level = 0;
         levels = new String[10];
-        levels[0] = "ewwewwewwewwewwewwewwe";
-        levels[1] = "eeweeweeweeweeweeweewe";
-        levels[2] = "eeeweeeweeeweeewweeeee";
-        levels[3] = "eewweeeewweeeewwweweee";
-        levels[4] = "eweeeeeweeeeeweeeeeeee";
-        levels[5] = "eweeeeweeeeeeeeeeeeww";
-        levels[6] = "ewewweeeweeeweeeeeeeeewewwe";
-        levels[7] = "ewweeeeeeeeeeweeeeeeeweeeeeweeeeeeeeeee";
-        levels[8] = "eeeeeeeeeeweeeeeeeeeeeeeweeeeeeeeeewwweee";
-        levels[9] = "eeeeeeweeeeeeweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+        levels[0] = "ewwewswepwaawewwssewweawwewwe";
+        levels[1] = "eeweeaweseweepwsseeweewaeewe";
+        levels[2] = "eeeaweeseweepewesseeawweeeee";
+        levels[3] = "eewwseepeewweesseeawwweweee";
+        levels[4] = "ewaeeeeeweeseeewpeeeeeeee";
+        levels[5] = "eweppseeeweaeeeeppeeeeeeeww";
+        levels[6] = "eweawweeeweeseweaeeeeeeepeawewwe";
+        levels[7] = "ppewaweseeeeeeeeewaeeeeeepweeeaeeweeeeeeeeeee";
+        levels[8] = "eeeeeeseepppeeweeeeeeassasseeeeeeeweeeeaeeeeeewwweee";
+        levels[9] = "eeeeeesweeaeeeeweeepppeeeaeeeeeeeeepppeeeppppppppppppappppppppeeeeaeeeeeeeeeeeeeee";
         
         currentLevel = levels[0];
     }
-    public void act() 
-    {
-        
+    
+    public void act() {
         if(wait < 1 && next == true){
             if(currentLevel.length() < 1 ){
                 currentLevel = nextLevel();
-            }else{
-             parse();   
+            } else{
+                parse();   
             }
-             
         }
-        wait --;
-       
+        wait--;
     } 
     
     //eeeeweeee
     //e spawns an evil moji, w waits
-    
-    public void parse(){
+    public void parse() {
         wait = fWait;
         char current = currentLevel.charAt(0);
         currentLevel = currentLevel.substring(1);
@@ -59,8 +55,14 @@ public class WaveMaker extends Actor
             
             case 'w': wait = 75;
                       break;
-            case 'e': getWorld().addObject(new EvilMojis(), getX(), getY());
+            case 'e': getWorld().addObject(new DevilEnemy(), getX(), getY());
                       break;
+            case 'p': getWorld().addObject(new TurnipBoi(), getX(), getY());
+                      break;
+            case 's': getWorld().addObject(new NormalBoi(), getX(), getY());
+                      break;
+            case 'a': getWorld().addObject(new SkullBoi(), getX(), getY());
+                      break;    
         }
     }
     

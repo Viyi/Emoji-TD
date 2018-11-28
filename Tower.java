@@ -7,20 +7,18 @@ import java.util.List;
 public class Tower extends Actor {
 
     private EvilMojis target;
-    private int range, damage, type, rate, timer;
-
-    public Tower(int r, int d, int rt) {
-        range = r;
-        timer = 0;
-        damage= d;
-        rate = rt;
-    }
     
-    public Tower(int r, int ra, int d) {
-        range = r;
+    private int range;
+    private int rate;
+    private int damage;
+    
+    private int timer;
+    
+    public Tower(int range, int rate, int damage) {
+        this.range = range;
+        this.rate = rate;
+        this.damage = damage;
         timer = 0;
-        rate = ra;
-        damage = d;
     }
 
     public void act() {
@@ -34,21 +32,18 @@ public class Tower extends Actor {
     }
 
     public void locateEnemy() {
-
         List<EvilMojis> temp = getObjectsInRange(range, EvilMojis.class);
         if (temp.size() == 0) {
             target = null;
             return;
         }
         EvilMojis enemy = temp.get(0);
-
         for (EvilMojis e : temp) {
 
             if (e.getDistance() > enemy.getDistance()) {
                 enemy = e;
             }
         }
-
         target = enemy;
     }
 
@@ -56,13 +51,12 @@ public class Tower extends Actor {
          try {
             if (target != null) {
                 turnTowards(target.getX(), target.getY());
-                getWorld().addObject(new Attack(target), getX(), getY());
+                getWorld().addObject(new Attack(target, damage), getX(), getY());
                 return true;
             }
-        }catch (IllegalStateException e){
-            
+        } catch (IllegalStateException e){
+            return false;
         }
-
         return false;
     }
 

@@ -16,28 +16,12 @@ public class EvilMojis extends Actor {
     private int sX, sY;
     private Iterator itr = EmojiWorld.oTracks.iterator();
     private GreenfootImage trackImg;
-                    //addObject(t, i * img.getWidth() + (img.getWidth() / 2), j * img.getHeight() + (img.getHeight() / 2));
 
-    public EvilMojis() {
-        distanceTraveled = 0;
-        health = 100;
-        speed = 2;
-        direction = 1;
-        type = "normal";
-        value = 5;
-        if (itr.hasNext()) {
-            Point p = (Point) itr.next();
-            sX = p.x;
-            sY = p.y;
-        }
-        trackImg = EmojiWorld.typicalTrack.getImage();
-    }
-    
     public EvilMojis(int h, int s, int v) {
         distanceTraveled = 0;
-        health = 100;
-        speed = 2;
-        direction = 1;
+        health = h;
+        speed = s;
+        direction = v;
         type = "normal";
         value = 5;
         if (itr.hasNext()) {
@@ -51,13 +35,13 @@ public class EvilMojis extends Actor {
     public void act() {
         distanceTraveled++;
         if (getX() < sX - 20) {
-            setLocation(getX() + 1, getY());
+            setLocation(getX() + speed, getY());
         } else if (getX() > sX + 20) {
-            setLocation(getX() - 1, getY());
+            setLocation(getX() - speed, getY());
         } else if (getY() < sY - 20) {
-            setLocation(getX(), getY() + 1);
+            setLocation(getX(), getY() + speed);
         } else if (getY() > sY + 20) {
-            setLocation(getX(), getY() - 1);
+            setLocation(getX(), getY() - speed);
         } else {
             if (itr.hasNext()) {
                 Point p = (Point) itr.next();
@@ -70,17 +54,15 @@ public class EvilMojis extends Actor {
         
         //followTrack();
        //move(speed);
-       if(getX() > getWorld().getWidth()){
-           ((EmojiWorld)getWorld()).takeLives(1);
+       if(getX() > getWorld().getWidth()) {
+           ((EmojiWorld) getWorld()).takeLives(1);
            getWorld().removeObject(this);
        }
-       if(health < 0){
-           ((EmojiWorld)getWorld()).addCoins(value);
+       if(health < 0) {
+           ((EmojiWorld) getWorld()).addCoins(value);
            getWorld().removeObject(this);
            
        }
-       
-       
     }
 
     public int getDistance() {
@@ -91,7 +73,6 @@ public class EvilMojis extends Actor {
         detectTrack();
         turnToTrack();
         move(speed);
-
     }
     
     private void detectTrack(){

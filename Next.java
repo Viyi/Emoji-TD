@@ -10,14 +10,9 @@ import java.util.List;
  */
 public class Next extends Actor {
 
-    /**
-     * Act - do whatever the Next wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
             setNext();
-
         }
     }
 
@@ -34,7 +29,5 @@ public class Next extends Actor {
     public void setIm(String s){
         setImage(s);
     }
-    
-    
 
 }
