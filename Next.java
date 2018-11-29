@@ -24,6 +24,8 @@ public class Next extends Actor {
         WaveMaker wave = temp.get(0);
         setImage("images/nextWave.png");
         wave.setNext(true);
+       
+       
     }
     
     public void setIm(String s){

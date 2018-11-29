@@ -21,9 +21,9 @@ public class EvilMojis extends Actor {
         distanceTraveled = 0;
         health = h;
         speed = s;
-        direction = v;
+        direction = 0;
         type = "normal";
-        value = 5;
+        value = v;
         if (itr.hasNext()) {
             Point p = (Point) itr.next();
             sX = p.x;
@@ -33,7 +33,7 @@ public class EvilMojis extends Actor {
     }
 
     public void act() {
-        distanceTraveled++;
+        distanceTraveled += speed;
         if (getX() < sX - 20) {
             setLocation(getX() + speed, getY());
         } else if (getX() > sX + 20) {

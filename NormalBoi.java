@@ -9,6 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class NormalBoi extends EvilMojis
 {
     public NormalBoi() {
-        super(100, 2, 10);
+        super(75, 2, 5);
     }
 }

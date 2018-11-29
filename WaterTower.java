@@ -10,6 +10,6 @@ public class WaterTower extends Tower
 {
     
     public WaterTower() {
-        super(1000, 10, 20);   
+        super(250, 10, 8, "water");   
     }
 }

@@ -28,7 +28,25 @@ public class Attack extends Actor
         target = t;
     }
     
+    public Attack(EvilMojis t, int damage, String type) {
+        speed = 5;
+        this.damage = damage;
+        this.type = type;
+        target = t;
+        
+        if(type.equals("tongue")){
+            setImage("images/tongueAtk.png");
+        }else if(type.equals("smile")){
+            setImage("images/smileAtk.png");
+        }else if(type.equals("water")){
+            setImage("images/waterAtk.png");
+        }else if(type.equals("eggplant")){
+            setImage("images/eggplant.png");
+        }
+    }
+    
     public void act() {
+        
        follow();
     } 
     

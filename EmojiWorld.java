@@ -27,15 +27,13 @@ public class EmojiWorld extends World
     public EmojiWorld() {
         super(960, 540, 1, false);
         
-        GreenfootSound bgm = new GreenfootSound("images/emojitd.wav");
-        bgm.playLoop();
         
-        coins = 500;
+        coins = 300;
         lives = 10;
-        wave = 0;
+        wave = 1;
         
         addObject(new WaveMaker(), 0, 30);
-        addObject(new Select(), 900, 30);
+        addObject(new Select(), 895, 30);
         
         genMap();
 
@@ -49,29 +47,33 @@ public class EmojiWorld extends World
             showText("Game Over.", getWidth() / 2, getHeight() / 2);
             Greenfoot.stop();
         }
+        if (wave > 10) {
+            showText("You Win!.", getWidth() / 2, getHeight() / 2);
+            Greenfoot.stop();
+        }
         
         showText("Coins: " + coins, getWidth() / 2, 10);
         showText("Lives: " + lives , getWidth() / 2, 30);
-        showText("Wave: " + rWave , getWidth() / 2, 50);
+        showText("Wave: " + wave , getWidth() / 2, 50);
         
         // spawn tower
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null) {
             int x = mouse.getX();
             int y = mouse.getY();
-            if(Greenfoot.mouseClicked(null) && y < 540 - 100){
+            if(Greenfoot.mouseClicked(this) && y < 540 - 100){
                 if (EmojiWorld.towerSel.equals("normalTower") && coins > 99) {
                     addObject(new NormalTower(), x, y);
                     coins -= 100;
-                } else if (EmojiWorld.towerSel.equals("tongueTower") && coins > 499) {
+                } else if (EmojiWorld.towerSel.equals("tongueTower") && coins > 199) {
                     addObject(new tongueTower(), x, y);
-                    coins -= 500;
-                } else if (EmojiWorld.towerSel.equals("waterTower") && coins > 1000) {
+                    coins -= 200;
+                } else if (EmojiWorld.towerSel.equals("waterTower") && coins > 299) {
                     addObject(new WaterTower(), x, y);
-                    coins -= 999;
-                } else if (EmojiWorld.towerSel.equals("kissTower") && coins > 1000) {
+                    coins -= 300;
+                } else if (EmojiWorld.towerSel.equals("kissTower") && coins > 499) {
                     addObject(new KissTower(), x, y);
-                    coins -= 999;
+                    coins -= 500;
                 }
             }
         }
@@ -211,5 +213,9 @@ public class EmojiWorld extends World
     
     public Integer[][] getMap() {
         return map;
+    }
+    
+    public void nextWave(){
+        wave++;
     }
 }

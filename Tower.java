@@ -6,12 +6,12 @@ import java.util.List;
 
 public class Tower extends Actor {
 
-    private EvilMojis target;
+    public EvilMojis target;
     
     private int range;
     private int rate;
     private int damage;
-    
+    private String type = "";
     private int timer;
     
     public Tower(int range, int rate, int damage) {
@@ -21,6 +21,15 @@ public class Tower extends Actor {
         timer = 0;
     }
 
+    public Tower(int range, int rate, int damage, String type) {
+        this.range = range;
+        this.rate = rate;
+        this.damage = damage;
+        this.type = type;
+        timer = 0;
+        
+    }
+    
     public void act() {
         locateEnemy();
         timer++;
@@ -51,7 +60,7 @@ public class Tower extends Actor {
          try {
             if (target != null) {
                 turnTowards(target.getX(), target.getY());
-                getWorld().addObject(new Attack(target, damage), getX(), getY());
+                getWorld().addObject(new Attack(target, damage, type), getX(), getY());
                 return true;
             }
         } catch (IllegalStateException e){
@@ -59,5 +68,14 @@ public class Tower extends Actor {
         }
         return false;
     }
+    
+    public int getDamage(){
+        return damage;
+    }
+    
+    public String getType(){
+        return type;
+    }
+
 
 }

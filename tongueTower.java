@@ -10,7 +10,7 @@ public class tongueTower extends Tower
 {
     
     public tongueTower() {
-        super(250, 30, 100);
+        super(275, 85, 100, "tongue");
     }
     
     public void act() {

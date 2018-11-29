@@ -19,16 +19,16 @@ public class WaveMaker extends Actor
         wave = 1;
         level = 0;
         levels = new String[10];
-        levels[0] = "ewwewswepwaawewwssewweawwewwe";
-        levels[1] = "eeweeaweseweepwsseeweewaeewe";
-        levels[2] = "eeeaweeseweepewesseeawweeeee";
-        levels[3] = "eewwseepeewweesseeawwweweee";
-        levels[4] = "ewaeeeeeweeseeewpeeeeeeee";
-        levels[5] = "eweppseeeweaeeeeppeeeeeeeww";
-        levels[6] = "eweawweeeweeseweaeeeeeeepeawewwe";
-        levels[7] = "ppewaweseeeeeeeeewaeeeeeepweeeaeeweeeeeeeeeee";
-        levels[8] = "eeeeeeseepppeeweeeeeeassasseeeeeeeweeeeaeeeeeewwweee";
-        levels[9] = "eeeeeesweeaeeeeweeepppeeeaeeeeeeeeepppeeeppppppppppppappppppppeeeeaeeeeeeeeeeeeeee";
+        levels[0] = "swwsswwsswwsswwsswwssww";
+        levels[1] = "swwwswwawawawwwsawwsssa";
+        levels[2] = "eeeeeewwweeeeewwwweeeee";
+        levels[3] = "eeeeeseeeeeswwwswwwweeesss";
+        levels[4] = "sesesesewwwwwwsesesesewwwwww";
+        levels[5] = "aesesesaeswwwaeswwwasassas";
+        levels[6] = "pwwwwwwwppwwwwwwwwpppwwwwwwppppww";
+        levels[7] = "wepsawepsawepsawepsawepsawepsawepsawepsa";
+        levels[8] = "assassasspasswwwassasspasspasswwwassass";
+        levels[9] = "aspaspaspaspaspaspaspaspaspaspaspaspaspaspspspsppsp";
         
         currentLevel = levels[0];
     }
@@ -37,7 +37,9 @@ public class WaveMaker extends Actor
         if(wait < 1 && next == true){
             if(currentLevel.length() < 1 ){
                 currentLevel = nextLevel();
+                ((EmojiWorld) getWorld()).nextWave();
             } else{
+                
                 parse();   
             }
         }
@@ -74,14 +76,14 @@ public class WaveMaker extends Actor
            butt.setIm("images/nextWaveGlow.png");
         }
         if(level < levels.length){
-            ((EmojiWorld) getWorld()).setWave(level);
+            
             next = false;
             
             return levels[level];
         }
         
         level = 0;
-        ((EmojiWorld) getWorld()).setWave(level);
+        
         
         next = false;
         

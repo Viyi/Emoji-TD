@@ -10,7 +10,7 @@ public class NormalTower extends Tower
 {
     
     public NormalTower() {
-        super(200, 30, 1);   
+        super(200, 30, 15, "smile");   
     }
     
     public void act() 
