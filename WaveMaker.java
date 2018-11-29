@@ -18,7 +18,7 @@ public class WaveMaker extends Actor
         wait = fWait;
         wave = 1;
         level = 0;
-        levels = new String[10];
+        levels = new String[11];
         levels[0] = "swwsswwsswwsswwsswwssww";
         levels[1] = "swwwswwawawawwwsawwsssa";
         levels[2] = "eeeeeewwweeeeewwwweeeee";
@@ -28,7 +28,8 @@ public class WaveMaker extends Actor
         levels[6] = "pwwwwwwwppwwwwwwwwpppwwwwwwppppww";
         levels[7] = "wepsawepsawepsawepsawepsawepsawepsawepsa";
         levels[8] = "assassasspasswwwassasspasspasswwwassass";
-        levels[9] = "aspaspaspaspaspaspaspaspaspaspaspaspaspaspspspsppsp";
+        levels[9] = "aspaspaspaspaspaspaspaspaspaspaspaspaspaspspspsppspwwwwwwwwwwwwwwwwwwwww";
+        levels[10] = "aspaspaspaspaspaspaspaspaspaspaspaspaspaspspspsppspwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
         
         currentLevel = levels[0];
     }
